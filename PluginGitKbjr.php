@@ -13,4 +13,10 @@ class PluginGitKbjr{
   public function pull()           {$repo = Git::open($this->path_to_repo); $repo->pull();           return null;           }
   public function log()            {$repo = Git::open($this->path_to_repo);                          return $repo->log();   }
   public function fetch()          {$repo = Git::open($this->path_to_repo); $repo->fetch();          return null;           }
+  public function diff($filename){
+    $git_repo = new GitRepo();
+    $git_repo->set_repo_path($this->path_to_repo);
+    $msg = $git_repo->run("diff $filename");
+    return $msg;
+  }
 }
