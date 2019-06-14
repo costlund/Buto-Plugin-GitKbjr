@@ -1,5 +1,8 @@
-version: '1.0'
+version: '1.1'
 history:
+  '1.1':
+    date: '2019-06-14'
+    description: 'Add methods add, commit, push, pull, fetch, log, exist.'
   '1.0':
     date: '2019-06-13'
     description: 'Manifest created.'
