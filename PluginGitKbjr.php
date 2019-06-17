@@ -19,4 +19,14 @@ class PluginGitKbjr{
     $msg = $git_repo->run("diff $filename");
     return $msg;
   }
+  public function log_date_last(){
+    $git_repo = new GitRepo();
+    $git_repo->set_repo_path($this->path_to_repo);
+    $msg = $git_repo->run('log -1 --format="%at"');
+    if($msg){
+      $msg = trim($msg);
+      $msg = date('Y-m-d H:i:s', $msg);
+    }
+    return $msg;
+  }
 }
