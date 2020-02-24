@@ -5,6 +5,7 @@ class PluginGitKbjr{
     require_once(__DIR__.'/lib/Git.php');
   }
   public function set_repo($plugin){$this->path_to_repo = wfGlobals::getAppDir().'/plugin/'.$plugin;}
+  public function set_repo_theme($theme){$this->path_to_repo = wfGlobals::getAppDir().'/theme/'.$theme;}
   public function exist(){return wfFilesystem::fileExist($this->path_to_repo.'/.git');}
   public function status()         {$repo = Git::open($this->path_to_repo);                          return $repo->status();}
   public function add()            {$repo = Git::open($this->path_to_repo); $repo->add();            return null;           }
@@ -26,6 +27,16 @@ class PluginGitKbjr{
     if($msg){
       $msg = trim($msg);
       $msg = date('Y-m-d H:i:s', $msg);
+    }
+    return $msg;
+  }
+  public function remote_get_url_origin(){
+    $git_repo = new GitRepo();
+    $git_repo->set_repo_path($this->path_to_repo);
+    try{
+      $msg = trim($git_repo->run("remote get-url origin"));
+    } catch (Exception $ex) {
+      $msg = null;
     }
     return $msg;
   }

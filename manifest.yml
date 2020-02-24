@@ -1,12 +1,18 @@
-version: '1.2'
+version: '1.4.0'
 history:
-  '1.2':
+  '1.4.0':
+    date: '2020-02-24'
+    description: Add method set_repo_theme.
+  '1.3.0':
+    date: '2020-02-21'
+    description: Add method remote_get_url_origin.
+  '1.2.0':
     date: '2019-06-17'
     description: 'Add methods log_date_last.'
-  '1.1':
+  '1.1.0':
     date: '2019-06-14'
     description: 'Add methods add, commit, push, pull, fetch, log, exist.'
-  '1.0':
+  '1.0.0':
     date: '2019-06-13'
     description: 'Manifest created.'
 plugin: {  }
