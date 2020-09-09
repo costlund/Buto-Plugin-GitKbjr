@@ -4,6 +4,7 @@ class PluginGitKbjr{
   function __construct() {
     require_once(__DIR__.'/lib/Git.php');
   }
+  public function active_branch()  {$repo = Git::open($this->path_to_repo);                          return $repo->active_branch();}
   public function set_repo($plugin){$this->path_to_repo = wfGlobals::getAppDir().'/plugin/'.$plugin;}
   public function set_repo_theme($theme){$this->path_to_repo = wfGlobals::getAppDir().'/theme/'.$theme;}
   public function exist(){return wfFilesystem::fileExist($this->path_to_repo.'/.git');}
