@@ -24,10 +24,18 @@ class PluginGitKbjr{
   public function log_date_last(){
     $git_repo = new GitRepo();
     $git_repo->set_repo_path($this->path_to_repo);
-    $msg = $git_repo->run('log -1 --format="%at"');
-    if($msg){
-      $msg = trim($msg);
-      $msg = date('Y-m-d H:i:s', $msg);
+    $msg = null;
+    try {
+      /**
+       * Handle if no commits.
+       */
+      $msg = $git_repo->run('log -1 --format="%at"');
+      if($msg){
+        $msg = trim($msg);
+        $msg = date('Y-m-d H:i:s', $msg);
+      }
+    }
+    catch(Exception $e) {
     }
     return $msg;
   }
