@@ -1,5 +1,9 @@
-version: 1.6.0
+version: 1.7.0
 history:
+  1.7.0:
+    date: '2023-08-17'
+    title: 'PHP 8.2'
+    description: 'Changes according to PHP version 8.2.'
   1.6.0:
     date: '2022-08-08'
     title: Commits
@@ -7,15 +11,15 @@ history:
   1.5.0:
     date: '2020-02-24'
     title: 'New method'
-    description: Add method active_branch.
+    description: 'Add method active_branch.'
   1.4.0:
     date: '2020-02-24'
     title: 'New method'
-    description: Add method set_repo_theme.
+    description: 'Add method set_repo_theme.'
   1.3.0:
     date: '2020-02-21'
     title: 'New method'
-    description: Add method remote_get_url_origin.
+    description: 'Add method remote_get_url_origin.'
   1.2.0:
     date: '2019-06-17'
     title: 'New method'
@@ -26,7 +30,7 @@ history:
     description: 'Add methods add, commit, push, pull, fetch, log, exist.'
   1.0.0:
     date: '2019-06-13'
-    title: 'Manifest'
+    title: Manifest
     description: 'Manifest created.'
 plugin: {  }
 sys:

@@ -152,7 +152,7 @@ class GitRepo {
 					if (isset($reference)) {
 						if (!is_dir($reference) || !is_dir($reference.'/.git')) {
 							throw new Exception('"'.$reference.'" is not a git repository. Cannot use as reference.');
-						} else if (strlen($reference)) {
+						} else if (wfPhpfunc::strlen($reference)) {
 							$reference = realpath($reference);
 							$reference = "--reference $reference";
 						}
@@ -360,7 +360,7 @@ class GitRepo {
 	public function status($html = false) {
 		$msg = $this->run("status");
 		if ($html == true) {
-			$msg = str_replace("\n", "<br />", $msg);
+			$msg = wfPhpfunc::str_replace("\n", "<br />", $msg);
 		}
 		return $msg;
 	}
@@ -509,7 +509,7 @@ class GitRepo {
 		foreach($branchArray as $i => &$branch) {
 			$branch = trim($branch);
 			if (! $keep_asterisk) {
-				$branch = str_replace("* ", "", $branch);
+				$branch = wfPhpfunc::str_replace("* ", "", $branch);
 			}
 			if ($branch == "") {
 				unset($branchArray[$i]);
@@ -551,7 +551,7 @@ class GitRepo {
 		if ($keep_asterisk) {
 			return current($active_branch);
 		} else {
-			return str_replace("* ", "", current($active_branch));
+			return wfPhpfunc::str_replace("* ", "", current($active_branch));
 		}
 	}
 
